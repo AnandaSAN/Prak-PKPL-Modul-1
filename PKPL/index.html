@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login WiFi OPD Kediri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            animation: fadeIn 2s;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('gumul3.jpg') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+        }
+        .container {
+            text-align: center;
+            animation: slideIn 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .login-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+        .login-box input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .login-box button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            background: #00f2fe;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .login-box button:hover {
+            background: #4facfe;
+        }
+        .login-box p {
+            font-size: 14px;
+            color: #666;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            height: 100px;
+        }
+        .footer {
+            background: #f8f8f8;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer .sitemap {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer .sitemap ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 15px;
+        }
+        .footer .sitemap ul li {
+            margin: 5px 0;
+        }
+        .footer .newsletter {
+            margin-bottom: 20px;
+        }
+        .footer .newsletter input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            border-right: none;
+        }
+        .footer .newsletter button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 5px 5px 0;
+            background: #00f2fe;
+            color: white;
+            cursor: pointer;
+        }
+        .footer .newsletter button:hover {
+            background: #4facfe;
+        }
+        .footer .social-icons {
+            margin-top: 20px;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        .footer .social-icons a:hover {
+            color: #00f2fe;
+        }
+        .footer .disclaimer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="main-content">
+        <div class="container">
+            <div class="logo">
+                <img src="gumul3.jpg" alt="Logo Kabupaten Kediri">
+            </div>
+            <div class="login-box">
+                <h2>Login CCTV view OPD Kabupaten Kediri</h2>
+                <input type="text" placeholder="Username" id="username">
+                <input type="password" placeholder="Password" id="password">
+                <button onclick="login()">LOGIN</button>
+                <p>Powered by Dinas Komunikasi Dan Informatika Kabupaten Kediri</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="newsletter">
+            <form action="https://formspree.io/YOUREMAIL" method="POST">
+                <input type="email" name="_replyto" placeholder="Your email address">
+                <button type="submit">></button>
+            </form>
+        </div>
+        <div class="social-icons">
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Webflow</a>
+        </div>
+        <div class="disclaimer">
+            <p>We are Habstark, the agency for web design, Shopify, and Webflow.<br>
+            &copy;2017-2022 – Made with Love in Stuttgart</p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username && password) {
+                var formData = new FormData();
+                formData.append('username', username);
+                formData.append('password', password);
+
+                fetch('login.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        window.location.href = "index.html";
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please enter username and password');
+            }
+        }
+    </script>
+    </body>
+</html>
