@@ -1,0 +1,78 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: url('img/bg/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+h3 {
+    font-family: 'Righteous', cursive;
+}
+
+.navbar {
+    transition: background-color 0.3s;
+}
+
+.navbar:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.table {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table-dark {
+    background-color: #343a40;
+}
+
+.table-secondary {
+    background-color: #f8f9fa;
+}
+
+.btn {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    transform: scale(1.05);
+}
+
+/* footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+} */
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.link a {
+    color: #fff;
+    font-size: 20px;
+}
+
+.link a:hover {
+    color: #007bff;
+}
